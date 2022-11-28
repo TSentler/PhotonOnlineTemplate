@@ -10,12 +10,9 @@ namespace UI.Network
 {
     public class MenuView : MonoBehaviour
     {
-        [SerializeField] private TMP_InputField _create;
         [SerializeField] private TMP_Dropdown _join;
         
         private LobbyCallbackCatcher _lobbyCallbacks;
-
-        public string CreateRoomName => _create.text;
 
         public string JoinRoomName =>
             _join.options.Count == 0
@@ -25,7 +22,6 @@ namespace UI.Network
         private void Awake()
         {
             _lobbyCallbacks = FindObjectOfType<LobbyCallbackCatcher>();
-            _create.text = "Room1";
             _join.ClearOptions();
         }
 
