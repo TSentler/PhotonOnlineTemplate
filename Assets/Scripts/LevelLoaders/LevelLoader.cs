@@ -38,7 +38,7 @@ namespace LevelLoaders
 
         public void StartGame()
         {
-            CreateOrJoinMap(LevelRoom.CreateChatLevelRoom());
+            JoinOrCreateRoom(LevelRoom.CreateChatLevelRoom());
         }
 
         public void CreateOrJoinRandom()
@@ -49,6 +49,11 @@ namespace LevelLoaders
             }
         }
 
+        public void JoinRoom(string roomName)
+        {
+            PhotonNetwork.JoinRoom(roomName);
+        }
+
         private void CreateRoom(string name)
         {
             PhotonNetwork.CreateRoom(name, _currentLevelRoom.RoomOptions);
@@ -56,7 +61,7 @@ namespace LevelLoaders
 
         private void OnJoinRoomFailed(short returnCode, string message)
         {
-            Debug.Log("Faild join room");
+            Debug.Log("Failed join room");
             var name = _currentLevelRoom.GenerateRoomName();
             CreateRoom(name);
         }
@@ -66,10 +71,10 @@ namespace LevelLoaders
             PhotonNetwork.LoadLevel(_currentLevelRoom.LevelName);
         }
 
-        private void CreateOrJoinMap(LevelRoom levelRoom)
+        private void JoinOrCreateRoom(LevelRoom levelRoom)
         {
             _currentLevelRoom = levelRoom;
-            var name = _roomsInfo.FindRoomName(levelRoom.LevelName);
+            var name = _roomsInfo.FindRoomByLevelName(levelRoom.LevelName);
             if (name == null)
             {
                 name = _currentLevelRoom.GenerateRoomName();

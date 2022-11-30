@@ -1,0 +1,19 @@
+{
+    "name": "UI.LevelLoader",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6fbc5112ec951f94dbb45bcf921db580",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:ef332783cce43dc478294c2d70b41d89",
+        "GUID:ab9831801de75674783cfb8b3d192478"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
