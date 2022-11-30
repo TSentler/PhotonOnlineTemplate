@@ -6,6 +6,12 @@ namespace LevelLoaders
 {
     public class LevelRoom
     {
+        private LevelRoom(string levelName, RoomOptions roomOptions)
+        {
+            _levelName = levelName;
+            _roomOptions = roomOptions;
+        }
+
         public const string SceneNameKey = "SceneName";
 
         private string _levelName;
@@ -14,12 +20,6 @@ namespace LevelLoaders
         public string LevelName => _levelName;
         public RoomOptions RoomOptions => _roomOptions;
         
-        private LevelRoom(string levelName, RoomOptions roomOptions)
-        {
-            _levelName = levelName;
-            _roomOptions = roomOptions;
-        }
-
         public static LevelRoom CreateChatLevelRoom()
         {
             var chatRoomOptions = new RoomOptions();
