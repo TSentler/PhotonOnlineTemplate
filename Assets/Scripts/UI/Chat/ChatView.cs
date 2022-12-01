@@ -29,6 +29,11 @@ namespace Chat
             }
         }
 
+        private void Awake()
+        {
+            _chatMessageSender = FindObjectOfType<ChatMessageSender>();
+        }
+
         private void OnEnable()
         {
             _button.onClick.AddListener(OnSended);
